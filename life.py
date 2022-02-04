@@ -17,10 +17,10 @@ Conway's Game of Life
 dim = (40,40)
 speed = 0.3
 UseImage = True
-save = False
+save = True
 
 if UseImage:
-    grid_init = mpimg.imread('img.png')
+    grid_init = mpimg.imread('input.png')
     grid_init[grid_init<1]=0
     grid_init = (grid_init+1) % 2
     dim = np.shape(grid_init)
@@ -72,5 +72,5 @@ def animate(i):
     return [im]
 
 animation = FuncAnimation(fig, animate, init_func=init,interval=1e3*speed,blit=True)
-if save: animation.save('life.mp4', writer="ffmpeg")
+if save: animation.save('animation/life.gif', writer="ffmpeg")
 plt.show()
